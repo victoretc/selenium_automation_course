@@ -4,9 +4,11 @@ import time
 
 driver = webdriver.Chrome()
 
-driver.get("https://www.saucedemo.com/")
+
 
 def test_login_form():
+    driver.get("https://www.saucedemo.com/")
+
     username_field = driver.find_element(By.XPATH, '//input[@data-test="username"]')
     username_field.send_keys("standard_user")
 
@@ -20,7 +22,7 @@ def test_login_form():
     assert driver.current_url == "https://www.saucedemo.com/inventory.html"
 
     driver.quit()
-    
+
 
 
 

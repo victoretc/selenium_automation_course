@@ -26,3 +26,5 @@ def test_add_item_in_the_cart():
 
     item_in_the_cart = driver.find_element(By.XPATH, '//*[@id="item_1_title_link"]/div[@class="inventory_item_name"]').text
     assert item == item_in_the_cart
+
+    driver.quit()

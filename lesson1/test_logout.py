@@ -4,6 +4,7 @@ import time
 
 driver = webdriver.Chrome()
 
+
 def test_logout():
     driver.get("https://www.saucedemo.com/")
 

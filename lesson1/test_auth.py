@@ -5,7 +5,6 @@ import time
 driver = webdriver.Chrome()
 
 
-
 def test_login_form():
     driver.get("https://www.saucedemo.com/")
 

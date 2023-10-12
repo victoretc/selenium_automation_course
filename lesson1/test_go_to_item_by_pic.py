@@ -1,18 +1,19 @@
 from selenium import webdriver
 from selenium.webdriver.common.by import By
-import time
 
 driver = webdriver.Chrome()
 
 
-def test_add_good_to_cart():
+def test_go_to_item_card_by_pic():
     driver.get("https://www.saucedemo.com/inventory.html")
-
-    # select item
-    #driver.find_element(By.CSS_SELECTOR, "a[id='item_3_title_link'] > div[class='inventory_item_name']").text
+    # authorization
+    driver.find_element(By.XPATH, '//input[@data-test="username"]').send_keys("standard_user")
+    driver.find_element(By.XPATH, '//input[@data-test="password"]').send_keys("secret_sauce")
+    driver.find_element(By.XPATH, '//input[@data-test="login-button"]').click()
 
     # click on img
-    #item_img = driver.find_element(By.CSS_SELECTOR, "a#item_3_img_link").click()
+    driver.find_element(By.CSS_SELECTOR, "a#item_3_img_link").click()
+
     #driver.find_element("/static/media/red-tatt-1200x1500.30dadef4.jpg", "img").click()
     #driver.find_element("#item_3_img_link > img").click()
     #driver.find_element(By.LINK_TEXT, "/static/media/red-tatt-1200x1500.30dadef4.jpg").click()

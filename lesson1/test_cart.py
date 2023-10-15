@@ -42,8 +42,8 @@ def test_remove_item_from_the_cart():
     cart_button.click()
     time.sleep(2)
 
-    remove_button = driver.find_element(By.XPATH, '//button[@data-test="remove-sauce-labs-backpack"]')
-    remove_button.click()
+    remove_button_cart = driver.find_element(By.XPATH, '//button[@data-test="remove-sauce-labs-backpack"]')
+    remove_button_cart.click()
 
     assert driver.find_elements(By.XPATH, '//div[@class="removed_cart_item"]')
 
@@ -59,6 +59,7 @@ def test_add_item_from_items_card():
 
     login_button = driver.find_element(By.XPATH, '//input[@data-test="login-button"]')
     login_button.click()
+    time.sleep(1)
 
     items_image = driver.find_element(By.XPATH, '//img[@alt="Sauce Labs Backpack"]')
     items_image.click()
@@ -69,6 +70,31 @@ def test_add_item_from_items_card():
     item_in_the_cart = driver.find_element(By.XPATH, "//span[@class='shopping_cart_badge']")
     # assert item_in_the_cart.is_displayed()
     assert item_in_the_cart.text == '1'
+
+def test_remove_item_from_cart_from_items_card():
+    driver.get("https://www.saucedemo.com/")
+
+    username_field = driver.find_element(By.XPATH, '//input[@data-test="username"]')
+    username_field.send_keys("standard_user")
+
+    password_field = driver.find_element(By.XPATH, '//input[@data-test="password"]')
+    password_field.send_keys("secret_sauce")
+
+    login_button = driver.find_element(By.XPATH, '//input[@data-test="login-button"]')
+    login_button.click()
+    time.sleep(1)
+
+    items_image = driver.find_element(By.XPATH, '//img[@alt="Sauce Labs Backpack"]')
+    items_image.click()
+
+    add_to_cart_button = driver.find_element(By.XPATH, '//*[@id="add-to-cart-sauce-labs-backpack"]')
+    add_to_cart_button.click()
+
+    remove_button_items_card = driver.find_element(By.XPATH, '//button[@data-test="remove-sauce-labs-backpack"]')
+    remove_button_items_card.click()
+
+    assert driver.find_elements(By.XPATH, '//*[@id="add-to-cart-sauce-labs-backpack"]')
+
 
 
 

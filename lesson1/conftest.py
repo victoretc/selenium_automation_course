@@ -20,3 +20,9 @@ def login(driver):
 
     login_button = driver.find_element(By.XPATH, '//input[@data-test="login-button"]')
     login_button.click()
+
+
+@pytest.fixture
+def cart_with_item(driver, login):
+    driver.find_element(By.XPATH, '//*[@id="add-to-cart-sauce-labs-backpack"]').click()
+    driver.get('https://www.saucedemo.com/cart.html')

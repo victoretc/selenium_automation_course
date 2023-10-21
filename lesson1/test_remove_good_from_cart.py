@@ -29,3 +29,14 @@ def test_remove_good_from_cart():
 
 def test_remove_good_from_cart2():
     driver.get("https://www.saucedemo.com/inventory.html")
+    driver.find_element(By.XPATH, '//input[@data-test="username"]').send_keys("standard_user")
+    driver.find_element(By.XPATH, '//input[@data-test="password"]').send_keys("secret_sauce")
+    driver.find_element(By.XPATH, '//input[@data-test="login-button"]').click()
+    driver.find_element(By.XPATH, '//*[@id="add-to-cart-sauce-labs-backpack"]').click()
+    driver.find_element(By.CSS_SELECTOR, "a[class='shopping_cart_link']").click()
+    driver.find_element(By.XPATH, '//*[@id="remove-sauce-labs-backpack"]').click()
+
+    assert len(driver.find_elements(By.ID, 'item_4_title_link')) == 0
+
+
+

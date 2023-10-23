@@ -17,7 +17,7 @@ class MainPage:
     MAIN_PAGE_BM_CLOSE_BUTTON = "//button[text()='Close Menu']"
 
     """main page - filter"""
-    AZ_FILTER = "//option[@value='az']"
+    AZ_FILTER = "//option[text()='Name (A to Z)']"
     ZA_FILTER = "//option[@value='za']"
     LTH_FILTER = "//option[@value='lohi']"  # low to high
     HTL_FILTER = "//option[@value='hilo']"  # high to low

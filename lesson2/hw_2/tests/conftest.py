@@ -8,7 +8,6 @@ from lesson2.hw_2.tests.configuration import BaseUrls, TestData
 def driver():
     driver = webdriver.Chrome()
     yield driver
-    print('...quit browser')
     driver.quit()
 
 @pytest.fixture()

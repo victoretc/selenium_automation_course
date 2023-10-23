@@ -15,4 +15,8 @@ def test_open_items_card_by_image(driver, login):
 
     assert first_item_name == product_card_item_name
 
+
+def test_open_items_card_by_name(driver, login):
+
+
 #base64 - сравнить картинки

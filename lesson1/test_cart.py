@@ -1,4 +1,3 @@
-from selenium import webdriver
 from selenium.webdriver.common.by import By
 import time
 from selenium.common.exceptions import NoSuchElementException
@@ -46,10 +45,6 @@ def test_remove_item_from_the_cart_list(driver, login):
     driver.find_elements(By.CSS_SELECTOR, 'button.cart_button')[0].click()
     list_items_after = driver.find_elements(By.CSS_SELECTOR, 'div.cart_item') #1
     assert len(list_items_before) == len(list_items_after) + 1
-
-
-
-
 
 
 def test_add_item_from_items_card(driver, login):

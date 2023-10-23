@@ -1,29 +1,21 @@
 from selenium.webdriver.common.by import By
+from locators import USERNAME, PASSWORD, LOGIN_BUTTON
+from data import *
 
 
 def test_login_form_correct(driver):
 
-    username_field = driver.find_element(By.XPATH, '//input[@data-test="username"]')
-    username_field.send_keys("standard_user")
+    driver.find_element(USERNAME).send_keys(CORRECT_LOGIN)
+    driver.find_element(PASSWORD).send_keys(CORRECT_PASSWORD)
+    driver.find_element(LOGIN_BUTTON).click()
 
-    password_field = driver.find_element(By.XPATH, '//input[@data-test="password"]')
-    password_field.send_keys("secret_sauce")
-
-    login_button = driver.find_element(By.XPATH, '//input[@data-test="login-button"]')
-    login_button.click()
-
-    assert driver.current_url == "https://www.saucedemo.com/inventory.html"
+    assert driver.current_url == PRODUCT_LIST_URL
 
 def test_login_form_uncorrect(driver):
 
-    username_field = driver.find_element(By.XPATH, '//input[@data-test="username"]')
-    username_field.send_keys("user")
-
-    password_field = driver.find_element(By.XPATH, '//input[@data-test="password"]')
-    password_field.send_keys("user")
-
-    login_button = driver.find_element(By.XPATH, '//input[@data-test="login-button"]')
-    login_button.click()
+    driver.find_element(USERNAME).send_keys(INCORRECT_LOGIN)
+    driver.find_element(PASSWORD).send_keys(INCORRECT_PASSWORD)
+    driver.find_element(LOGIN_BUTTON).click()
 
     error_button_text = driver.find_element(By.CSS_SELECTOR, 'h3[data-test="error"]').text
 

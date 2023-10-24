@@ -23,6 +23,10 @@ def test_logout():
     burger_menu = driver.find_element(By.ID, 'react-burger-menu-btn')
     burger_menu.click()
 
+
+
+
+
     time.sleep(2)
 
     logout_button = driver.find_element(By.ID, 'logout_sidebar_link')

@@ -15,6 +15,7 @@ class LocatorsText:
     LOGIN_TEXT = 'Логин:'
     PASSWORD_TEXT = 'Пароль:'
     SUCCESS_MESSAGE_TEXT = 'Вы успешно зарегистрированы!'
+    LOADER_TEXT = 'Загрузка...'
 
 
 class TestData:

@@ -1,4 +1,3 @@
-"""test with time sleep"""
 import time
 from selenium.webdriver.common.by import By
 from lesson3.hw_3.configuration import BaseUrls, LocatorsText, TestData

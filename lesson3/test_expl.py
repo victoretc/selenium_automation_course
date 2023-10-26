@@ -4,10 +4,12 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.ui import WebDriverWait
 
+import util
+
 
 @pytest.fixture
 def chrome_options():
-    options = chrome_options()
+    options = util.chrome_options()
     options.add_argument('--start-maximized')
     return options
 

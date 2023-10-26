@@ -1,4 +1,4 @@
-#AUTH
+# AUTH
 
 USERNAME_FIELD = '//input[@data-test="username"]'
 PASSWORD_FIELD = '//input[@data-test="password"]'

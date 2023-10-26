@@ -1,12 +1,10 @@
 import pytest
 from selenium import webdriver
 
+
 @pytest.fixture()
 def driver():
     driver = webdriver.Chrome()
-    yield driver 
+    yield driver
     print('\nquit browser...')
     driver.quit()
-
-
-

@@ -1,9 +1,11 @@
+import time
+
 from selenium import webdriver
 from selenium.webdriver.common.by import By
-import time 
 
-driver = webdriver.Chrome()
+from util import chrome_options
 
+driver = webdriver.Chrome(options=chrome_options())
 
 
 def test_login_form():
@@ -22,13 +24,3 @@ def test_login_form():
     assert driver.current_url == "https://www.saucedemo.com/inventory.html"
 
     driver.quit()
-
-
-
-
-
-
-
-
-
-

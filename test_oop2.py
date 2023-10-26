@@ -3,6 +3,8 @@ import math
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 
+from util import chrome_options
+
 
 # == Пример с геометрическими фигурами ==
 # Базовый класс
@@ -235,11 +237,7 @@ class LoginPage:
 
 def test_login():
     # Инициализация драйвера Selenium для Chrome
-    options = webdriver.ChromeOptions()
-    options.add_argument('--headless')  # Run Chrome in headless mode.
-    options.add_argument('--no-sandbox')  # Bypass OS security model
-    options.add_argument('--disable-dev-shm-usage')  # Overcome limited resource problems
-    driver = webdriver.Chrome(options=options)
+    driver = webdriver.Chrome(options=chrome_options())
     # Создание объекта Page Object
     login_page = LoginPage(driver)
     login_page.login("standard_user", "secret_sauce")

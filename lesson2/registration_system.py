@@ -7,7 +7,6 @@ class RegistrationSystem:
     def register(self, name, email, phone):
         if email in self.users:
             return "Ошибка: Пользователь с таким email уже существует!"
-        
         # Сохраняем пользователя в формате {"email", "name", "phone"}
         self.users[email] = {'name': name, 'phone': phone, 'email': email}
         return "Пользователь успешно зарегистрирован!"
@@ -19,7 +18,7 @@ class RegistrationSystem:
     def delete_user_by_email(self, email):
         if email not in self.users:
             return "Ошибка: Пользователь с таким email не найден!"
-        
+
         del self.users[email]
         return f"Пользователь с email {email} успешно удален!"
 
@@ -31,10 +30,10 @@ class RegistrationSystem:
 system = RegistrationSystem()
 
 # Регистрация пользователя
-print(system.register("Алекс", "alex@example.com", "+1234567890"))  
+print(system.register("Алекс", "alex@example.com", "+1234567890"))
 # Просмотр всех пользователей
-print(system.view_all_users())  
+print(system.view_all_users())
 # Удаление пользователя по email
-print(system.delete_user_by_email("alex@example.com"))  
+print(system.delete_user_by_email("alex@example.com"))
 # Удаление всех пользователей
-print(system.delete_all_users())  
+print(system.delete_all_users())

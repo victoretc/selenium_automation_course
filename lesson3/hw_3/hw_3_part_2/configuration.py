@@ -11,4 +11,3 @@ class BaseLocators:
     DELETE_BTN_WITHOUT_BUTTON_CLASS_DELETE = "//div[@id='elements' and not(contains(@class, 'added-manually'))]"
     FIRST_BROKEN_IMG = ".example> img:nth-child(2)"
     SECOND_BROKEN_IMG = ".example> img:nth-child(3)"
-

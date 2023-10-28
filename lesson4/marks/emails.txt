@@ -1,0 +1,10 @@
+test.email+alex@gmail.com
+test.email.leet+alex@gmail.com
+test.email.leet+alex@leet.com
+test@openai.com
+test.email+openai@gmail.com
+invalid-email-address
+another-test@openai.com
+yet-another-test@openai.com
+one.more-test@openai.com
+final-test@openai.com

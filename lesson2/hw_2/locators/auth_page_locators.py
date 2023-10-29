@@ -11,8 +11,8 @@ class AuthPage:
     LOGIN_BUTTON = '//input[@data-test="login-button"]'
 
     """auth error borderlines"""
-    # USERNAME_ERROR_BORDER = ".input_error.error"
-    # PASSWORD_ERROR_BORDER = ".input_error.error"
+    USERNAME_ERROR_BORDER = "#user-name.input_error.error"
+    PASSWORD_ERROR_BORDER = "#password.input_error.error"
 
     """auth error buttons"""
     USERNAME_ERROR_CLOSE_BUTTON = "#user-name ~svg"
@@ -27,5 +27,7 @@ class AuthPage:
     LOCKED_USER_ERROR_MESSAGE = "//h3[@data-test='error']"
 
     """auth error message container"""
-    MESSAGE_ERROR_BORDER = "//div[@class='error-message-container error']"
+    MESSAGE_ERROR_CONTAINER = ".error-message-container.error"
+    MESSAGE_ERROR_BUTTON = "//button[@class='error-button']"
+
 

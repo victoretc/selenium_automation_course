@@ -1,3 +1,4 @@
+import pytest
 from selenium.webdriver.common.by import By
 from lesson2.hw_2.locators.auth_page_locators import AuthPage
 from lesson2.hw_2.tests.configuration import BaseUrls, TestData
@@ -9,10 +10,17 @@ def test_authorization(driver):
     driver.find_element(By.XPATH, AuthPage.LOGIN_BUTTON).click()
     assert driver.current_url == BaseUrls.PRODUCT_PAGE_URL
 
-def test_authorization_invalid_data(driver):
+@pytest.mark.parametrize("login_value, password_value, expected_error_message",
+                         [(TestData.LOGIN_INVALID_USER, TestData.INVALID_PASSWORD, "Epic sadface: Username and password do not match any user in this service"),
+                          (TestData.LOGIN_EMPTY, TestData.PASSWORD_EMPTY, "Epic sadface: Username is required"),
+                          (TestData.LOGIN_LOCKED_USER, TestData.PASSWORD_LOCKED_USER, "Epic sadface: Sorry, this user has been locked out."),
+                          ])
+def test_authorization_invalid_data(driver, login_value, password_value, expected_error_message):
     driver.get(BaseUrls.BASE_URL)
-    login_field = driver.find_element(By.XPATH, AuthPage.USERNAME_FIELD).send_keys(TestData.LOGIN_STANDARD_USER)
-    password_field = driver.find_element(By.XPATH, AuthPage.PASSWORD_FIELD).send_keys(TestData.INVALID_PASSWORD)
+    login_field = driver.find_element(By.XPATH, AuthPage.USERNAME_FIELD)
+    login_field.send_keys(login_value)
+    password_field = driver.find_element(By.XPATH, AuthPage.PASSWORD_FIELD)
+    password_field.send_keys(password_value)
     driver.find_element(By.XPATH, AuthPage.LOGIN_BUTTON).click()
 
     """username underline color"""
@@ -49,17 +57,5 @@ def test_authorization_invalid_data(driver):
     warning_error_btn = driver.find_element(By.XPATH, AuthPage.MESSAGE_ERROR_BUTTON)
     assert warning_error_btn.is_displayed()
     assert warning_error_btn.is_enabled()
-
-
-def test_auth_locked_user(driver):
-    driver.get(BaseUrls.BASE_URL)
-    login_field = driver.find_element(By.XPATH, AuthPage.USERNAME_FIELD).send_keys(TestData.LOGIN_LOCKED_USER)
-    password_field = driver.find_element(By.XPATH, AuthPage.PASSWORD_FIELD).send_keys(TestData.PASSWORD_LOCKED_USER)
-    driver.find_element(By.XPATH, AuthPage.LOGIN_BUTTON).click()
-    warring_text = driver.find_element(By.XPATH, AuthPage.LOCKED_USER_ERROR_MESSAGE)
-    value_warring_text = warring_text.text
-    assert value_warring_text == "Epic sadface: Sorry, this user has been locked out."
-
-
 
 

@@ -33,12 +33,13 @@ class TestData:
     LOGIN_STANDARD_USER = "standard_user"
     LOGIN_INVALID_USER = "user"
     LOGIN_LOCKED_USER = "locked_out_user"
+    LOGIN_EMPTY = ''
     """password data"""
     PASSWORD_STANDARD_USER = "secret_sauce"
     INVALID_PASSWORD = "user"
     PASSWORD_LOCKED_USER = "secret_sauce"
     PASSWORD_ALL = "secret_sauce"
-
+    PASSWORD_EMPTY = ''
 class CheckoutTestData:
     """----------checkout page data----------"""
 

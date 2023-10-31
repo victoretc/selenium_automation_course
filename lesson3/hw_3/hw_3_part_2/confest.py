@@ -8,9 +8,9 @@ from selenium.webdriver.chrome.options import Options
 @pytest.fixture
 def driver_options():
     options = Options()
-    options.add_argument('--headless')
+    #options.add_argument('--headless')
     # options.add_argument('--incognito')
-    # options.add_argument('--window-size=1200,980')
+    options.add_argument('--window-size=1920, 1200')
     return options
 
 
@@ -25,8 +25,8 @@ def driver():
 """fixture for explicit wait"""
 @pytest.fixture
 def explicit_wait(driver):
-    wait = WebDriverWait(driver, timeout=10)
-    return wait
+    explicit_wait = WebDriverWait(driver, timeout=10)
+    return explicit_wait
 
 
 """fixture for implicit wait"""

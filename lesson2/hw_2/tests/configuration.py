@@ -40,6 +40,7 @@ class TestData:
     PASSWORD_LOCKED_USER = "secret_sauce"
     PASSWORD_ALL = "secret_sauce"
     PASSWORD_EMPTY = ''
+
 class CheckoutTestData:
     """----------checkout page data----------"""
 
@@ -52,12 +53,12 @@ class CheckoutTestData:
 
     """checkout name"""
     INVALID_NAME_ONE_CHAR = 'A'
-    INVALID_NAME_ONE_NUM = 11.1
+    INVALID_NAME_ONLY_NUM = 11.1
     INVALID_NAME_EMPTY = ''
     """checkout surname"""
     INVALID_SURNAME_ONE_CHAR = 'C'
-    INVALID_SURNAME_ONE_NUM = 22.2
-    INVALID_SURNAME_ONE_EMPTY = ''
+    INVALID_SURNAME_ONLY_NUM = 22.2
+    INVALID_SURNAME_EMPTY = ''
     """checkout zip name"""
     INVALID_ZIP_STR = '1372'
     INVALID_ZIP_EMPTY = ''

@@ -7,10 +7,10 @@ from selenium.webdriver.support.ui import WebDriverWait
 def options():
     options = Options()
     options.add_argument('--window-size=2880,1800')
-    return options 
+    return options
 
 
-@pytest.fixture 
+@pytest.fixture
 def driver(options):
     driver = webdriver.Chrome(options=options)
     return driver
@@ -19,5 +19,4 @@ def driver(options):
 @pytest.fixture
 def wait(driver):
     wait = WebDriverWait(driver, timeout = 15)
-    return wait 
-
+    return wait

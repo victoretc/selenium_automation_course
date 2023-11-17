@@ -1,3 +1,8 @@
+import time
+
+time.sleep(200)
+
+
 def test_1_eq_1():
     assert 1 == 1 
 

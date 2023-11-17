@@ -26,14 +26,17 @@ def test_remove_from_cart():
     time.sleep(2)
 
     item_in_the_cart = driver.find_element(By.XPATH,
-                                           '//*[@id="item_1_title_link"]/div[@class="inventory_item_name"]').text
+                                           '//*[@id="item_1_title_link"]/div[@class="inventory_item_name"]')
 
     time.sleep(2)
 
     remove_button = driver.find_element(By.ID, 'remove-sauce-labs-bolt-t-shirt')
     remove_button.click()
-
-    item_after_removing = driver.find_element(By.XPATH,
-                                              '//*[@id="item_1_title_link"]/div[@class="inventory_item_name"]').text
-
-    assert item_in_the_cart != item_after_removing
+    time.sleep(2)
+    items_after_removing = driver.find_elements(By.XPATH, '//div[@class="inventory_item_name"]')
+    # for i in items_after_removing:
+    #     print(i.text, end=' ')
+    # print()
+    # print(items_after_removing)
+    # print(f"item in the cart = {item_in_the_cart}")
+    assert not item_in_the_cart.is_displayed()

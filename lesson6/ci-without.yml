@@ -1,18 +1,18 @@
-name: Run tests without Docker 
+name: Run tests without Docker
 
 on:
-  workflow_dispatch: 
+  workflow_dispatch:
 
 jobs:
-  build: 
+  build:
     runs-on: ubuntu-latest
-    steps: 
+    steps:
     - uses: actions/checkout@v4
 
-    - name: Install python 
+    - name: Install python
       uses: actions/setup-python@v4
       with:
-        python-version: '3.11' 
+        python-version: '3.11'
 
     - name: Install requirements
       run: |

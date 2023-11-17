@@ -7,7 +7,7 @@ from selenium.webdriver.support.ui import WebDriverWait
 def options():
     options = Options()
     options.add_argument('--window-size=2880,1800')
-    options.add_argument('--headless')
+    # options.add_argument('--headless')
     return options 
 
 
@@ -20,5 +20,5 @@ def driver(options):
 
 @pytest.fixture
 def wait(driver):
-    wait = WebDriverWait(driver, timeout = 15)
+    wait = WebDriverWait(driver, timeout=15)
     return wait 

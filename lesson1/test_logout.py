@@ -20,11 +20,9 @@ def test_logout():
     burger_menu_button = driver.find_element(By.CSS_SELECTOR, '#react-burger-menu-btn')
     burger_menu_button.click()
 
-    time.sleep(3)
-
     logout_button = driver.find_element(By. CSS_SELECTOR, '#logout_sidebar_link')
     logout_button.click()
 
-    assert driver.current_url == 'https://www.sauceemo.com/'
+    assert driver.current_url == 'https://www.saucedemo.com/'
 
     driver.quit()

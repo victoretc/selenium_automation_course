@@ -1,5 +1,5 @@
-from base.seleniumbase import BasePage
-from locators import HEADER, START_TESTING_BUTTON, LOGIN_FIELD, PASSWORDD_FIELD, AGREE_CHECKBOX, REGISTRATION_BUTTON, LOADER, SUCCESS_MESSAGE
+from lesson4.pom_practice.base.seleniumbase import BasePage
+from lesson4.pom_practice.tests.registration.locators import HEADER, START_TESTING_BUTTON, LOGIN_FIELD, PASSWORDD_FIELD, AGREE_CHECKBOX, REGISTRATION_BUTTON, LOADER, SUCCESS_MESSAGE
 
 class RegistrationPage(BasePage):
     def header(self):

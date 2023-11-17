@@ -4,7 +4,7 @@ from pages.registration_page import RegistrationPage
 
 class TestRegistration():
     def test_registration_positive(self, driver, random_email):
-        page = RegistrationPage(driver, url = REGISTRATION_PAGE)
+        page = RegistrationPage(driver, url=REGISTRATION_PAGE)
 
         # Перейти по URL: Открыть в браузере указанный URL сайта https://victoretc.github.io/selenium_waits/ 
         page.open()
@@ -25,7 +25,7 @@ class TestRegistration():
 
         # Согласие с правилами: Установить флажок в чекбокс "Согласен со всеми правилами".
         page.agree_checkbox().click()
-        assert page.agree_checkbox().is_selected() == True 
+        assert page.agree_checkbox().is_selected() == True
 
         # Подтвердить регистрацию: Нажать кнопку "Зарегистрироваться".
         page.registration_button().click()
@@ -35,13 +35,3 @@ class TestRegistration():
 
         #  Проверка сообщения: Убедиться, что после завершения загрузки появилось сообщение "Вы успешно зарегистрированы!".
         assert page.success_message().text == "Вы успешно зарегистрированы!"
-
-
-
-
-
-
-
-
-    
-

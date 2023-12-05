@@ -1,3 +1,4 @@
+from faker import Faker
 from selenium import webdriver
 import pytest
 from selenium.webdriver.chrome.options import Options
@@ -20,3 +21,9 @@ def driver(options):
 def wait(driver):
     wait = WebDriverWait(driver, timeout = 15)
     return wait
+
+
+@pytest.fixture
+def random_email():
+    faker = Faker()
+    return faker.email()

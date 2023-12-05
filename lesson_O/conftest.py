@@ -1,13 +1,17 @@
+import pytest
 from selenium import webdriver
 from selenium.webdriver.common.by import By
-import time 
 
-driver = webdriver.Chrome()
-
-
-def test_login_form():
+@pytest.fixture
+def driver():
+    driver = webdriver.Chrome()
     driver.get("https://www.saucedemo.com/")
+    driver.implicitly_wait(2)
+    yield driver
+    driver.quit()
 
+@pytest.fixture
+def login(driver):
     username_field = driver.find_element(By.XPATH, '//input[@data-test="username"]')
     username_field.send_keys("standard_user")
 
@@ -17,7 +21,8 @@ def test_login_form():
     login_button = driver.find_element(By.XPATH, '//input[@data-test="login-button"]')
     login_button.click()
 
-    time.sleep(3)
-    assert driver.current_url == "https://www.saucedemo.com/inventory.html"
 
-    driver.quit()
+@pytest.fixture
+def cart_with_item(driver, login):
+    driver.find_element(By.XPATH, '//*[@id="add-to-cart-sauce-labs-backpack"]').click()
+    driver.get('https://www.saucedemo.com/cart.html')

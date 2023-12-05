@@ -23,4 +23,5 @@ def test_outside_class():
 
 # для запуска необходимо использовать 
 # pytest -s -v --setup-show test_scope_example.py
-
+# параметр --setup-show показывает, как отрабатывают фикстуры, как они используются
+# запустить отдельный тест из файла: pytest -s -v --setup-show test_scope_example.py::test_outside_class()
